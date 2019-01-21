@@ -1,0 +1,32 @@
+﻿@model WebApp.ViewModels.CategoryIndexViewModel
+@{
+    ViewBag.Title = "Category";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Category", "Create")
+</p>
+<table class="table">
+
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Categorys)
+    {
+    <tr>
+        <td>ID:</td>
+        <td>@item.Id</td>
+        <td>Name:</td>
+        <td>@item.Name</td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("View Products", "Index","Product", new { id = item.Id }, null)
+        </td>
+    </tr>
+    }
+</table>

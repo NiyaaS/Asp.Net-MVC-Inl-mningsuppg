@@ -1,0 +1,26 @@
+﻿@model WebApp.ViewModels.CreateOrEditViewModel
+@{
+    ViewBag.Title = "Create";
+}
+<br>
+<p>
+    @Html.ActionLink("Back To View Categorys", "Index", new { })
+</p>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <h2>Create A New Category</h2>
+    <table class="table">
+        
+        <tr>
+            <td>Category Name: </td>
+            <td>
+                @Html.TextBoxFor(p => p.Name)
+                @Html.ValidationMessageFor(p => p.Name)
+            </td>
+        </tr>
+        
+    </table>
+    <input type="submit" value="Spara" />
+
+}

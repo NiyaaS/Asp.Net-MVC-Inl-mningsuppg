@@ -32,6 +32,7 @@ namespace WebApp.Controllers
             context = new ApplicationDbContext();
         }
         // GET: User
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var model = new ViewModels.UserIndexViewModel();
@@ -71,6 +72,7 @@ namespace WebApp.Controllers
             return false;
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(string id)
         {
             var editUser = UserManager.FindById(id);
@@ -88,6 +90,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(ViewModels.UserCreateOrEditViewModel model)
         {
             if (!ModelState.IsValid)

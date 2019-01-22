@@ -4,28 +4,31 @@
 }
 
 
+@if (Request.IsAuthenticated)
+{
+    <h2>Users</h2>
 
-<h2>Users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model.UserList)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.Email</td>
+                <td>@item.UserRoles</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.UserId })</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+<h2>Du måste vara inloggad för att se Users dummer</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>User Name</th>
-            <th>Email</th>
-            <th>Role</th>
-        </tr>
-    </thead>
-    @foreach(var item in Model.UserList)
-    {
-    <tr>
-
-        
-        <td>@item.UserName</td>
-        <td>@item.Email</td>
-        <td>@item.UserRoles</td>
-
-
-        <td>@Html.ActionLink("Edit", "Edit", new { id = item.UserId })</td>
-    </tr>
-    }
-</table>
+}

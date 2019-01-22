@@ -24,7 +24,11 @@
                 <td>
                     @item.Price
                 </td>
-                <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id }) | @Html.ActionLink("Description", "ViewDescription", new { id = item.Id })</td>
+                @if (Request.IsAuthenticated)
+                {
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+                }
+                <td>@Html.ActionLink("Description", "ViewDescription", new { id = item.Id })</td>
             </tr>
         }
     </tbody>

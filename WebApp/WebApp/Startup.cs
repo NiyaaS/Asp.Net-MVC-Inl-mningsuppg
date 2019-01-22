@@ -35,10 +35,10 @@ namespace WebApp
                 //Here we create a Admin super user who will maintain the website                  
 
                 var user = new ApplicationUser();
-                user.UserName = "Niya";
-                user.Email = "niy@gmail.com";
+                user.UserName = "Admin";
+                user.Email = "admin@gmail.com";
 
-                string userPWD = "A@Z200711";
+                string userPWD = "Admin123#";
 
                 var chkUser = UserManager.Create(user, userPWD);
 
@@ -57,6 +57,20 @@ namespace WebApp
                 role.Name = "Manager";
                 roleManager.Create(role);
 
+                var user = new ApplicationUser();
+                user.UserName = "Manager";
+                user.Email = "Manager@gmail.com";
+
+                string userPWD = "Manager123#";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add default User to Role Admin   
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "Manager");
+
+                }
             }
 
            

@@ -28,6 +28,7 @@
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id })
             </td>
         }
+        <td> @Html.ActionLink("Description", "ViewDescription", new { id = item.Id })</td>
     </tr>
     }
 </table>

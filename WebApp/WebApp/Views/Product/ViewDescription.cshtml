@@ -1,0 +1,29 @@
+﻿@model WebApp.ViewModels.ProductFromCategoryViewModel.ProductListViewModel
+@{
+    ViewBag.Title = "ViewDescription";
+}
+
+<h2>Details</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category ID</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>@Model.Id</td>
+        <td>@Model.Name</td>
+        <td>@Model.Price</td>
+        <td>
+            @Model.Description
+            @*@Html.TextAreaFor(p => p.Description)*@
+        </td>
+        <td>@Model.Category_Id</td>
+    </tr>
+
+</table>
+

@@ -1,0 +1,38 @@
+﻿@model WebApp.ViewModels.CreateOrEditProductViewModel
+@{
+    ViewBag.Title = "Create";
+}
+<br>
+
+@using (Html.BeginForm( FormMethod.Post))
+{
+    <h2>Create A New Product</h2>
+    <table class="table">
+        @Html.HiddenFor(model => model.Category_Id)
+
+        <tr>
+            <td>Product Name: </td>
+            <td>
+                @Html.TextBoxFor(p => p.Name)
+                @Html.ValidationMessageFor(p => p.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>Product Price: </td>
+            <td>
+                @Html.TextBoxFor(p => p.Price)
+                @Html.ValidationMessageFor(p => p.Price)
+            </td>
+        </tr>
+        <tr>
+            <td>Product Description: </td>
+            <td>
+                @Html.TextAreaFor(p => p.Description)
+                @Html.ValidationMessageFor(p => p.Description)
+            </td>
+        </tr>
+
+    </table>
+    <input type="submit" value="Spara" />
+
+}

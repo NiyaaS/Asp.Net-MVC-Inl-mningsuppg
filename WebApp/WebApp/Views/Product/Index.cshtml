@@ -1,0 +1,33 @@
+﻿@model WebApp.ViewModels.ProductFromCategoryViewModel
+@{
+    ViewBag.Title = "Products";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create", new {id = Model.CategoryId})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            @*<th>Description</th>*@
+        </tr>
+    </thead>
+    @foreach (var item in Model.ProductList)
+    {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Price</td>
+        @*<td>@item.Description</td>*@
+        @if (Request.IsAuthenticated)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            </td>
+        }
+    </tr>
+    }
+</table>

@@ -1,0 +1,28 @@
+﻿@model WebApp.ViewModels.ProductFromCategoryViewModel
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Alla Producter</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>@Html.ActionLink("Name", "ViewAllProducts", new {sort = Model.SortName })</th>
+            <th>@Html.ActionLink("Price", "ViewAllProducts", new {sort = Model.SortPrice })</th>
+            
+        </tr>
+    </thead>
+    @foreach (var item in Model.ProductList)
+    {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Price</td>
+        
+        <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |  @Html.ActionLink("Description", "ViewDescription", new { id = item.Id })</td>
+        <td></td>
+    </tr>
+    }
+</table>

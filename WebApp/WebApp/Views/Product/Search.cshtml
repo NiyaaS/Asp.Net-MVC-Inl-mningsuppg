@@ -1,0 +1,31 @@
+﻿@model WebApp.ViewModels.ProductFromCategoryViewModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search result</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.ActionLink("Name", "Search", new { Search = Model.Search, sort = Model.SortName })</th>
+            <th>@Html.ActionLink("Price", "Search", new { Search = Model.Search, sort = Model.SortPrice })</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.ProductList)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.Id }) | @Html.ActionLink("Description", "ViewDescription", new { id = item.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>

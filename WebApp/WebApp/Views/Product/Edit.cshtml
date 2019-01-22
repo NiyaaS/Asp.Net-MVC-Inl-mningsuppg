@@ -1,0 +1,52 @@
+﻿@model WebApp.ViewModels.CreateOrEditProductViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+<br>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <h2>Edit Product</h2>
+    <table class="table">
+        @Html.HiddenFor(model => model.Category_Id)
+        <tr>
+            <td>ID: </td>
+            <td>
+                @Model.Id
+                @*@Html.HiddenFor(model => model.Id)
+                @Html.TextBoxFor(model => model.Id)
+                @Html.ValidationMessageFor(model => model.Id)*@
+            </td>
+        </tr>
+
+        <tr>
+            <td>Product Name: </td>
+            <td>
+                @Html.TextBoxFor(p => p.Name)
+                @Html.ValidationMessageFor(p => p.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>Product Price: </td>
+            <td>
+                @Html.TextBoxFor(p => p.Price)
+                @Html.ValidationMessageFor(p => p.Price)
+            </td>
+        </tr>
+        <tr>
+            <td>Product Description: </td>
+            <td>
+                @Html.TextAreaFor(p => p.Description)
+                @Html.ValidationMessageFor(p => p.Description)
+            </td>
+        </tr>
+        <tr>
+            <td>Category ID </td>
+            <td>
+                @Model.Category_Id
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Spara" />
+
+}

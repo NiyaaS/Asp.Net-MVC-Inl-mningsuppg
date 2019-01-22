@@ -1,0 +1,32 @@
+﻿@model WebApp.ViewModels.CreateOrEditViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+<br>
+<p>
+    @Html.ActionLink("Back To View Categorys", "Index", new { })
+</p>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <h2>Edit Category</h2>
+    <table class="table">
+
+        <tr>
+            <td>ID: </td>
+            <td>
+                @Model.Id
+            </td>
+        </tr>
+
+        <tr>
+            <td>Category Name: </td>
+            <td>
+                @Html.TextBoxFor(p => p.Name)
+                @Html.ValidationMessageFor(p => p.Name)
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Spara" />
+
+}

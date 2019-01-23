@@ -137,7 +137,7 @@ namespace WebApp.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             ViewBag.Name = new SelectList(context.Roles, "Name", "Name");
@@ -146,8 +146,8 @@ namespace WebApp.Controllers
 
         //
         // POST: /Account/Register
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
